@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ConferenceController;
 
 // Pagrindinis puslapis
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -24,8 +26,16 @@ Route::prefix('employee')->group(function () {
 });
 
 // Administratoriaus posistemis
-Route::get('/admin', function() {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    // Naudotojų valdymas
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+    // Konferencijų valdymas
+    Route::get('/conferences', [ConferenceController::class, 'index'])->name('conferences.index');
+});
 
 
