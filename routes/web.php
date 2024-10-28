@@ -32,10 +32,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     })->name('dashboard');
 
     // Naudotojų valdymas
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-
+    Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Naudotojų sąrašas
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Naudotojo redagavimo puslapis
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update'); // Pridėkite šį maršrutą
     // Konferencijų valdymas
-    Route::get('/conferences', [ConferenceController::class, 'index'])->name('conferences.index');
+    Route::get('/conferences', [ConferenceController::class, 'index'])->name('conferences.index'); // Konferencijų sąrašas
 });
+
 
 
