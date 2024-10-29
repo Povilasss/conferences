@@ -34,10 +34,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Naudotojų valdymas
     Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Naudotojų sąrašas
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Naudotojo redagavimo puslapis
-    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update'); // Pridėkite šį maršrutą
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update'); // Naudotojo atnaujinimas
+
     // Konferencijų valdymas
-    Route::get('/conferences', [ConferenceController::class, 'index'])->name('conferences.index'); // Konferencijų sąrašas
+    Route::prefix('conferences')->name('conferences.')->group(function () {
+        Route::get('/', [ConferenceController::class, 'index'])->name('index'); // Konferencijų sąrašas
+        Route::get('/create', [ConferenceController::class, 'create'])->name('create'); // Naujos konferencijos kūrimas
+        Route::post('/', [ConferenceController::class, 'store'])->name('store'); // Išsaugoti naują konferenciją
+        Route::get('/{id}/edit', [ConferenceController::class, 'edit'])->name('edit'); // Konferencijos redagavimas
+        Route::put('/{id}', [ConferenceController::class, 'update'])->name('update'); // Konferencijos atnaujinimas
+        Route::delete('/{id}', [ConferenceController::class, 'destroy'])->name('destroy'); // Konferencijos trynimas
+    });
 });
+
 
 
 
