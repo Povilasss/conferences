@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
-        <h1>Konferencijų sąrašas</h1>
+    <h1>Konferencijų sąrašas</h1>
         <ul>
             @foreach($conferences as $conference)
                 <li>
