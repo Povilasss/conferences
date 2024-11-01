@@ -44,8 +44,10 @@
 </div>
 
 <!-- Pagrindinis turinys -->
-<div class="container mt-4">
-    @yield('content')
+<div class="flex items-center justify-center min-h-screen bg-gray-900">
+    <div class="container mt-4 max-w-3xl p-6 bg-white rounded-lg shadow-md">
+        @yield('content')
+    </div>
 </div>
 
 <script src="{{ mix('js/app.js') }}"></script>

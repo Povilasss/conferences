@@ -3,8 +3,8 @@
 
 @section('content')
     <div class="container">
-        <h1>Naudotojų valdymas</h1>
-        <p>Čia galite valdyti sistemos naudotojus.</p>
+        <h1 class="text-black text-center" style="font-size: 2rem; font-weight: bold;">Naudotojų valdymas</h1>
+        <p class="text-black text-center">Čia galite valdyti sistemos naudotojus</p>
 
         <table class="table">
             <thead>

@@ -1,12 +1,11 @@
 
 @extends('layouts.app')
-
 @section('content')
-    <div class="container">
+    <div class="container text-center text-black">
         <h1>Redaguoti naudotoją: {{ $user['name'] }}</h1>
 
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger text-red-500">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -15,24 +14,26 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.users.update', $user['id']) }}" method="POST">
+        <form action="{{ route('admin.users.update', $user['id']) }}" method="POST" class="inline-block">
             @csrf
-            @method('PUT') <!-- Nurodo, kad tai PUT metodas -->
+            @method('PUT')
 
-            <!-- Vardas -->
-            <div class="form-group">
+
+            <div class="form-group mb-4">
                 <label for="name">Vardas</label>
-                <input type="text" id="name" name="name" value="{{ old('name', $user['name']) }}" class="form-control" required>
+                <input type="text" id="name" name="name" value="{{ old('name', $user['name']) }}" class="form-control bg-gray-200" required>
             </div>
 
-            <!-- El. paštas -->
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label for="email">El. paštas</label>
-                <input type="email" id="email" name="email" value="{{ old('email', $user['email']) }}" class="form-control" required>
+                <input type="email" id="email" name="email" value="{{ old('email', $user['email']) }}" class="form-control bg-gray-200" required>
             </div>
 
             <button type="submit" class="btn btn-success">Išsaugoti</button>
         </form>
     </div>
 @endsection
+
+
+
 

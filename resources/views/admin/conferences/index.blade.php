@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Konferencijų valdymas</h1>
+        <h1 style="color: black; text-align: center; font-weight: bold; font-size: 2rem;">Konferencijų valdymas</h1>
         <a href="{{ route('admin.conferences.create') }}" class="btn btn-primary">Sukurti naują konferenciją</a>
         <table class="table mt-3">
             <thead>

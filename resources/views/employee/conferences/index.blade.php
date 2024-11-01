@@ -2,11 +2,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container text-black">
         <h1>Visų konferencijų sąrašas</h1>
         <ul>
             @foreach($conferences as $conference)
-                <li>
+                <li class="mb-4">
                     <h3>{{ $conference['title'] }}</h3>
                     <p>{{ $conference['description'] }}</p>
                     <p><strong>Data:</strong> {{ $conference['date'] }}</p>
@@ -16,3 +16,4 @@
         </ul>
     </div>
 @endsection
+
