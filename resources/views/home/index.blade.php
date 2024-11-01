@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagrindinis puslapis</title>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <style>
+        .fog-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(3px);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 <div class="navbar bg-base-100">
@@ -48,8 +63,28 @@
         <button class="btn btn-active btn-ghost">Logout</button>
     </div>
 </div>
+
+<!-- Hero Section -->
+<div class="hero min-h-screen flex items-center justify-center relative" style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="fog-effect"></div> <!-- Fog effect div -->
+    <div class="hero-content text-black text-center">
+        <div class="max-w-md">
+            <h1 class="mb-5" style="font-size: 4rem; font-weight: bold;">Konferencijų registracija</h1>
+            <p class="mb-5" style="font-size: 1.25rem; font-weight: bold;">
+                Prisijunkite prie mūsų konferencijų, kur dalyviai gali mokytis, bendrauti ir plėtoti naujas idėjas.
+                Mūsų platforma suteikia galimybę lengvai užsiregistruoti ir dalyvauti įvairiose konferencijose visame pasaulyje.
+            </p>
+            <button class="btn btn-primary">Pradėti dabar</button>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </body>
 </html>
+
+
 {{--<div class="container">--}}
 {{--    <h1>Pagrindinis puslapis</h1>--}}
 

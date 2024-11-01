@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
-
 <div class="navbar bg-base-100">
     <div class="navbar-start">
         <div class="dropdown">
