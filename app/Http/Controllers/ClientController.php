@@ -17,10 +17,10 @@ class ClientController extends Controller
         return view('client.index', compact('conferences'));
     }
 
-    // Konferencijos peržiūra
+    // Konferencijos perziura
     public function show($id)
     {
-        // Konferencijos informacija.
+        // Konferencijos info
         $conference = [
             'id' => $id,
             'title' => 'Pirmoji konferencija',

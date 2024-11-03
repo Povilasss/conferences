@@ -10,13 +10,13 @@ use App\Http\Controllers\Admin\ConferenceController;
 // Pagrindinis puslapis
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Kliento posistemis
+// Kliento
 Route::prefix('client')->group(function () {
     Route::get('/conferences', [ClientController::class, 'index'])->name('client.index'); // Konferencijų sąrašas
     Route::get('/conferences/{id}', [ClientController::class, 'show'])->name('client.show'); // Konferencijos peržiūra
 });
 
-// Darbuotojo posistemis
+// Darbuotojo
 Route::prefix('employee')->group(function () {
     Route::get('/conferences', [EmployeeController::class, 'index'])->name('employee.conferences.index'); // Visų konferencijų sąrašas
     Route::get('/conferences/{id}', [EmployeeController::class, 'show'])->name('employee.conferences.show'); // Konferencijos peržiūra
@@ -25,7 +25,7 @@ Route::prefix('employee')->group(function () {
     })->name('employee.dashboard');
 });
 
-// Administratoriaus posistemis
+// Administratoriaus
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');

@@ -26,7 +26,7 @@ class ConferenceController extends Controller
 
     public function store(Request $request)
     {
-        // Validacijos taisyklės
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -35,9 +35,6 @@ class ConferenceController extends Controller
             'time' => 'required',
             'address' => 'required|string'
         ]);
-
-        // Naujos konferencijos išsaugojimo logika
-        // (Čia galite pridėti kodą, kuris išsaugo konferenciją duomenų bazėje)
 
         return redirect()->route('admin.conferences.index')->with('success', 'Konferencija sukurta sėkmingai!');
     }
@@ -60,24 +57,17 @@ class ConferenceController extends Controller
             'address' => 'required|string'
         ]);
 
-        // Konferencijos atnaujinimo logika
-        // (Čia galite pridėti kodą, kuris atnaujina konferenciją duomenų bazėje)
-
         return redirect()->route('admin.conferences.index')->with('success', 'Konferencija sėkmingai atnaujinta!');
     }
 
     public function destroy($id)
     {
-        // Paimame konferencijos informaciją
+
         $conference = ['id' => $id, 'title' => 'AI Technologijos', 'date' => '2024-12-15', 'status' => 'Planuojama'];
 
-        // Patikriname, ar konferencija yra įvykusi
         if ($conference['status'] === 'Įvykusi') {
             return redirect()->route('admin.conferences.index')->with('error', 'Įvykusios konferencijos negalima ištrinti.');
         }
-
-        // Konferencijos ištrynimo logika
-        // (Čia galite pridėti kodą, kuris ištrina konferenciją duomenų bazėje)
 
         return redirect()->route('admin.conferences.index')->with('success', 'Konferencija sėkmingai ištrinta!');
     }
